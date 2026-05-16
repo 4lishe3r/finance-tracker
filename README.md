@@ -92,7 +92,7 @@ flutter run -d android
 ## Team
 
 | Member | Contribution |
-|---|---|
+|---| Zhalgas, Alisher |
 | — | Architecture, Riverpod, Drift |
 | — | UI, navigation, themes |
 | — | Firebase, Chopper, currency converter |
