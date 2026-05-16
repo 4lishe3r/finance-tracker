@@ -24,7 +24,7 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
     _amountCtrl.dispose();
     super.dispose();
   }
-
+//1
   Future<void> _convert() async {
     final amount = double.tryParse(_amountCtrl.text);
     if (amount == null || amount <= 0) {
