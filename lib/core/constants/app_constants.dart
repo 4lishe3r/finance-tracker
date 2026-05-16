@@ -26,3 +26,4 @@ class AppConstants {
   static const String prefBudgetKey = 'monthly_budget';
   static const String prefNameKey = 'user_name';
 }
+

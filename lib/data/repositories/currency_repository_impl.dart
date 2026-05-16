@@ -27,7 +27,7 @@ class CurrencyRepositoryImpl implements CurrencyRepository {
     if (response.statusCode == 200) {
       final data = json.decode(response.body) as Map<String, dynamic>;
       final rawRates = data['conversion_rates'] as Map<String, dynamic>? ?? {};
-      // Фильтруем только нужные валюты
+
       return Map.fromEntries(
         AppConstants.currencies
             .where((c) => rawRates.containsKey(c))
@@ -53,3 +53,4 @@ class CurrencyRepositoryImpl implements CurrencyRepository {
     throw Exception('Conversion failed: ${response.statusCode}');
   }
 }
+

@@ -29,7 +29,7 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
   @override
   void initState() {
     super.initState();
-    // Pre-fill currency from prefs
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final prefs = ref.read(userPrefsProvider).valueOrNull;
       if (prefs != null) {
@@ -82,7 +82,7 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Title
+
               TextFormField(
                 controller: _titleCtrl,
                 decoration: const InputDecoration(
@@ -94,7 +94,6 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
               ),
               const SizedBox(height: 12),
 
-              // Amount + Currency row
               Row(
                 children: [
                   Expanded(
@@ -129,7 +128,6 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
               ),
               const SizedBox(height: 12),
 
-              // Category
               DropdownButtonFormField<String>(
                 value: _category,
                 items: AppConstants.expenseCategories
@@ -143,7 +141,6 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
               ),
               const SizedBox(height: 12),
 
-              // Date picker
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.calendar_today),
@@ -161,7 +158,6 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
               ),
               const SizedBox(height: 12),
 
-              // Note
               TextFormField(
                 controller: _noteCtrl,
                 maxLines: 2,
@@ -189,3 +185,4 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
     );
   }
 }
+

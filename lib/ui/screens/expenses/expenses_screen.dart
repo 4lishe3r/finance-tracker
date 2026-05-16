@@ -52,7 +52,6 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                 );
               }
 
-              // Group by month
               final grouped = <String, List<ExpenseEntity>>{};
               for (final e in filtered) {
                 final key = DateFormat.yMMMM().format(e.date);
@@ -248,3 +247,4 @@ class _FilterSheet extends StatelessWidget {
     );
   }
 }
+

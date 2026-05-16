@@ -26,7 +26,7 @@ class _SharedExpensesScreenState
     _idCtrl.dispose();
     super.dispose();
   }
-//1
+
   void _showAddDialog() {
     showDialog(
       context: context,
@@ -36,7 +36,7 @@ class _SharedExpensesScreenState
           await ref
               .read(sharedExpenseDatasourceProvider)
               .addSharedExpense(expense);
-          // Refresh
+
           ref.invalidate(sharedExpensesProvider(_householdId));
         },
       ),
@@ -102,7 +102,7 @@ class _SharedExpensesScreenState
 
                 return SliverList(
                   delegate: SliverChildListDelegate([
-                    // Summary
+
                     Card(
                       child: Padding(
                         padding: const EdgeInsets.all(16),
@@ -364,3 +364,4 @@ class _InfoColumn extends StatelessWidget {
     );
   }
 }
+

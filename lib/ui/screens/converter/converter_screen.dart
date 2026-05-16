@@ -24,7 +24,7 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
     _amountCtrl.dispose();
     super.dispose();
   }
-//1
+
   Future<void> _convert() async {
     final amount = double.tryParse(_amountCtrl.text);
     if (amount == null || amount <= 0) {
@@ -69,7 +69,7 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
             padding: const EdgeInsets.all(24),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                // Amount field
+
                 TextField(
                   controller: _amountCtrl,
                   keyboardType:
@@ -81,7 +81,6 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
                 ),
                 const SizedBox(height: 24),
 
-                // From → To row
                 Row(
                   children: [
                     Expanded(child: _CurrencyDropdown(
@@ -116,7 +115,6 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
                 ),
                 const SizedBox(height: 32),
 
-                // Result
                 if (_error != null)
                   Card(
                     color: Theme.of(context).colorScheme.errorContainer,
@@ -165,7 +163,6 @@ class _ConverterScreenState extends ConsumerState<ConverterScreen> {
 
                 const SizedBox(height: 32),
 
-                // All rates
                 _RatesGrid(base: _fromCurrency),
               ]),
             ),
@@ -255,3 +252,4 @@ class _RatesGrid extends ConsumerWidget {
     );
   }
 }
+

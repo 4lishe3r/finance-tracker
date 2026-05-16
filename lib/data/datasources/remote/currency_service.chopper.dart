@@ -1,14 +1,12 @@
-// dart format width=80
-// GENERATED CODE - DO NOT MODIFY BY HAND
+
+
 
 part of 'currency_service.dart';
 
-// **************************************************************************
-// ChopperGenerator
-// **************************************************************************
 
-// coverage:ignore-file
-// ignore_for_file: type=lint
+
+
+
 final class _$CurrencyService extends CurrencyService {
   _$CurrencyService([ChopperClient? client]) {
     if (client == null) return;
@@ -52,3 +50,4 @@ final class _$CurrencyService extends CurrencyService {
     return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
   }
 }
+

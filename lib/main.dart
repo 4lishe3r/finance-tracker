@@ -45,3 +45,4 @@ class FinanceTrackerApp extends ConsumerWidget {
     );
   }
 }
+

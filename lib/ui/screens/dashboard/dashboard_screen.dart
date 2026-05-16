@@ -40,7 +40,7 @@ class DashboardScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                // ── Budget Overview Card ───────────────────────────────
+
                 prefsAsync.when(
                   loading: () => const CircularProgressIndicator(),
                   error: (e, _) => Text('Error: $e'),
@@ -53,7 +53,6 @@ class DashboardScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // ── Category Pie Chart ─────────────────────────────────
                 Text(
                   'Spending by Category',
                   style: Theme.of(context).textTheme.titleMedium,
@@ -69,7 +68,6 @@ class DashboardScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // ── Recent Transactions ────────────────────────────────
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -256,7 +254,6 @@ class _CategoryPieChart extends StatelessWidget {
   }
 }
 
-// Исправлено: dynamic → ExpenseEntity
 class _TransactionTile extends StatelessWidget {
   final ExpenseEntity expense;
   const _TransactionTile({required this.expense});
@@ -300,3 +297,4 @@ class _EmptyState extends StatelessWidget {
         ),
       );
 }
+

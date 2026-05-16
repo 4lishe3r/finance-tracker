@@ -9,7 +9,6 @@ class ExpenseRepositoryImpl implements ExpenseRepository {
 
   ExpenseRepositoryImpl(this._db);
 
-  // Map Drift row → Domain entity
   ExpenseEntity _toEntity(Expense row) => ExpenseEntity(
         id: row.id,
         title: row.title,
@@ -20,7 +19,6 @@ class ExpenseRepositoryImpl implements ExpenseRepository {
         date: row.date,
       );
 
-  // Map Domain entity → Drift companion
   ExpensesCompanion _toCompanion(ExpenseEntity e) => ExpensesCompanion(
         title: Value(e.title),
         amount: Value(e.amount),
@@ -77,3 +75,4 @@ class ExpenseRepositoryImpl implements ExpenseRepository {
   Stream<Map<String, double>> watchCategoryTotals(int year, int month) =>
       _db.watchCategoryTotals(year, month);
 }
+

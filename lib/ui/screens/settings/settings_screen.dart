@@ -25,7 +25,7 @@ class SettingsScreen extends ConsumerWidget {
                   SliverFillRemaining(child: Text('Error: $e')),
               data: (prefs) => SliverList(
                 delegate: SliverChildListDelegate([
-                  // ── Profile ──────────────────────────────────────────
+
                   _SectionHeader(title: 'Profile'),
                   _EditableListTile(
                     icon: Icons.person,
@@ -36,7 +36,6 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // ── Appearance ───────────────────────────────────────
                   _SectionHeader(title: 'Appearance'),
                   Card(
                     child: Column(
@@ -70,7 +69,6 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // ── Currency & Budget ─────────────────────────────────
                   _SectionHeader(title: 'Finance'),
                   Card(
                     child: Column(
@@ -95,7 +93,6 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // ── About ─────────────────────────────────────────────
                   _SectionHeader(title: 'About'),
                   Card(
                     child: ListTile(
@@ -207,3 +204,4 @@ class _EditableListTile extends StatelessWidget {
     );
   }
 }
+

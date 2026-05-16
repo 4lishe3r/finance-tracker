@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// Represents a shared expense stored in Firestore.
 class SharedExpense {
   final String id;
   final String title;
@@ -45,14 +44,12 @@ class SharedExpense {
       };
 }
 
-/// Abstract interface
 abstract interface class SharedExpenseDataSource {
   Stream<List<SharedExpense>> watchSharedExpenses(String householdId);
   Future<void> addSharedExpense(SharedExpense expense);
   Future<void> deleteSharedExpense(String id, String householdId);
 }
 
-/// Реальная реализация через Firestore
 class SharedExpenseDataSourceFirestore implements SharedExpenseDataSource {
   final FirebaseFirestore _firestore;
 
@@ -82,3 +79,4 @@ class SharedExpenseDataSourceFirestore implements SharedExpenseDataSource {
   Future<void> deleteSharedExpense(String id, String householdId) =>
       _col(householdId).doc(id).delete();
 }
+

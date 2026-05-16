@@ -80,3 +80,4 @@ GoRouter appRouter(Ref ref) {
     ),
   );
 }
+

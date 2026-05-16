@@ -6,9 +6,8 @@ import 'package:flutter/foundation.dart';
 
 part 'database.g.dart';
 
-// ──────────────────────────────────────────────
-// TABLE DEFINITIONS
-// ──────────────────────────────────────────────
+
+
 
 class Expenses extends Table {
   IntColumn get id => integer().autoIncrement()();
@@ -21,9 +20,8 @@ class Expenses extends Table {
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
 }
 
-// ──────────────────────────────────────────────
-// DATABASE
-// ──────────────────────────────────────────────
+
+
 
 @DriftDatabase(tables: [Expenses])
 class AppDatabase extends _$AppDatabase {
@@ -33,7 +31,6 @@ class AppDatabase extends _$AppDatabase {
   @override
   int get schemaVersion => 1;
 
-  // ── EXPENSES DAO methods ──
 
   Stream<List<Expense>> watchAllExpenses() =>
       (select(expenses)..orderBy([(t) => OrderingTerm.desc(t.date)])).watch();
@@ -101,11 +98,11 @@ QueryExecutor _openConnection() {
       ),
     );
   }
-  // Android / iOS / desktop — просто SQLite без web-опций
+
   return driftDatabase(name: 'finance_tracker');
 }
 
-// Provider
 final databaseProvider = Provider<AppDatabase>((ref) {
   throw UnimplementedError('Override in main()');
 });
+

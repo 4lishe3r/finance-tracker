@@ -6,3 +6,4 @@ abstract interface class CurrencyRepository {
     required String to,
   });
 }
+

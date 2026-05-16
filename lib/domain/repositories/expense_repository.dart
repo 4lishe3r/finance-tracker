@@ -10,3 +10,4 @@ abstract interface class ExpenseRepository {
   Stream<double> watchTotalByMonth(int year, int month);
   Stream<Map<String, double>> watchCategoryTotals(int year, int month);
 }
+

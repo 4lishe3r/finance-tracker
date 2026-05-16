@@ -36,3 +36,4 @@ class ExpenseEntity {
         date: date ?? this.date,
       );
 }
+

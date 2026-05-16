@@ -26,3 +26,4 @@ abstract class CurrencyService extends ChopperService {
     return _$CurrencyService(client);
   }
 }
+

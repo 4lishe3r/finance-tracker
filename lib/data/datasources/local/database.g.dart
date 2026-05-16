@@ -1,8 +1,7 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+
 
 part of 'database.dart';
 
-// ignore_for_file: type=lint
 class $ExpensesTable extends Expenses with TableInfo<$ExpensesTable, Expense> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -631,3 +630,4 @@ class $AppDatabaseManager {
   $$ExpensesTableTableManager get expenses =>
       $$ExpensesTableTableManager(_db, _db.expenses);
 }
+

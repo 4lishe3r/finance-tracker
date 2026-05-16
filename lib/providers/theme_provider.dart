@@ -36,12 +36,10 @@ class ThemeModeNotifier extends AsyncNotifier<ThemeMode> {
 final themeModeNotifierProvider =
     AsyncNotifierProvider<ThemeModeNotifier, ThemeMode>(ThemeModeNotifier.new);
 
-// Convenience sync provider with fallback
 final themeModeProvider = Provider<ThemeMode>((ref) {
   return ref.watch(themeModeNotifierProvider).valueOrNull ?? ThemeMode.system;
 });
 
-// ── Budget & Currency Prefs ────────────────────────────────────────────────
 
 class UserPrefsNotifier extends AsyncNotifier<UserPrefs> {
   @override
@@ -95,3 +93,4 @@ class UserPrefs {
 
 final userPrefsProvider =
     AsyncNotifierProvider<UserPrefsNotifier, UserPrefs>(UserPrefsNotifier.new);
+

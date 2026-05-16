@@ -21,7 +21,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
     super.initState();
     _budgetCtrl = TextEditingController();
   }
-// 1
+
   @override
   void dispose() {
     _budgetCtrl.dispose();
@@ -34,7 +34,6 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
     final prefsAsync = ref.watch(userPrefsProvider);
     final totalAsync = ref.watch(monthlyTotalProvider((now.year, now.month)));
 
-    // Build last 6 months bar chart data
     final months = List.generate(6, (i) {
       final d = DateTime(now.year, now.month - 5 + i);
       return d;
@@ -48,7 +47,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
             padding: const EdgeInsets.all(16),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                // ── Budget Settings ────────────────────────────────────
+
                 prefsAsync.when(
                   loading: () => const CircularProgressIndicator(),
                   error: (e, _) => Text('Error: $e'),
@@ -106,7 +105,6 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // ── Overview ───────────────────────────────────────────
                 prefsAsync.when(
                   loading: () => const SizedBox.shrink(),
                   error: (_, __) => const SizedBox.shrink(),
@@ -141,7 +139,6 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // ── 6-Month Bar Chart ──────────────────────────────────
                 Text('Last 6 Months',
                     style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 8),
@@ -256,3 +253,4 @@ class _SummaryChip extends StatelessWidget {
     );
   }
 }
+

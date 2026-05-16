@@ -27,3 +27,4 @@ class CurrencyRateModel {
   @override
   String toString() => 'CurrencyRateModel(base: $base, date: $date, rates: $rates)';
 }
+

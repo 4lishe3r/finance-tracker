@@ -12,13 +12,11 @@ import '../domain/entities/expense_entity.dart';
 import '../domain/repositories/currency_repository.dart';
 import '../domain/repositories/expense_repository.dart';
 
-// ── SharedPreferences ─────────────────────────────────────────────────────
 
 final sharedPreferencesProvider = FutureProvider<SharedPreferences>(
   (_) => SharedPreferences.getInstance(),
 );
 
-// ── Services ──────────────────────────────────────────────────────────────
 
 final currencyServiceProvider = Provider<CurrencyService>(
   (_) => CurrencyService.create(),
@@ -28,7 +26,6 @@ final sharedExpenseDatasourceProvider = Provider<SharedExpenseDataSource>(
   (_) => SharedExpenseDataSourceFirestore(FirebaseFirestore.instance),
 );
 
-// ── Repositories ──────────────────────────────────────────────────────────
 
 final expenseRepositoryProvider = Provider<ExpenseRepository>((ref) {
   final db = ref.watch(databaseProvider);
@@ -40,7 +37,6 @@ final currencyRepositoryProvider = Provider<CurrencyRepository>((ref) {
   return CurrencyRepositoryImpl(service);
 });
 
-// ── Expense Providers ─────────────────────────────────────────────────────
 
 final allExpensesProvider = StreamProvider<List<ExpenseEntity>>((ref) {
   return ref.watch(expenseRepositoryProvider).watchAllExpenses();
@@ -66,7 +62,6 @@ final categoryTotalsProvider =
       .watchCategoryTotals(year, month);
 });
 
-// ── Currency Providers ────────────────────────────────────────────────────
 
 final exchangeRatesProvider =
     FutureProvider.family<Map<String, double>, String>((ref, base) {
@@ -82,7 +77,6 @@ final currencyConversionProvider = FutureProvider.family<double,
       );
 });
 
-// ── Shared Expenses Provider ──────────────────────────────────────────────
 
 final sharedExpensesProvider =
     StreamProvider.family<List<SharedExpense>, String>((ref, householdId) {
@@ -90,3 +84,4 @@ final sharedExpensesProvider =
       .watch(sharedExpenseDatasourceProvider)
       .watchSharedExpenses(householdId);
 });
+
